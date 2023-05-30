@@ -1,0 +1,47 @@
+Create table professor_telefone(
+
+ professor_fone_id int (10) not null auto_increment,
+matricula int(5) not null,
+numero varchar(15) not null,
+constraint pk_professor_telefone primary key(professor_fone_id),
+constraint fk__pt_matricula foreign key(codigo_curso)references professor(matricula),
+constrant uk_pt_mat_tel unique key (matricula,numero)
+);
+create table curso_professor(
+ curso_prof_id int (10) not null auto_increment,
+codigo_curso int (3) not null,
+matricula_prof int (5) not null,
+
+create database minimercado;
+use minimercado;
+create table produto (
+codigo_produto int(5) not null auto_increment,
+descriçcao varchar(40) not null
+quantidade_estoque double(10,1) not null default 0,
+contraint pk_produto primary key(codigo_produto)
+);
+-----------------------------------------------------------------------------------------------------------------------
+create table cliente (
+cpf_cliente varchar(11) not null,
+nome varchar(80) not null,
+endereco varchar (80) not null,
+contraint pk cliente primary key (cpf_cliente)
+);
+create table compra(
+ codigo_compra int(11) not null auto increment,
+ date date not null,
+cpf_cliente varchar (11) not null,
+constraint pk_compra_cpf_cliente foreign key(cpf cliente)
+  references cliente (cpf_cliente)
+);
+create table compra_produto(
+id_compra_produto int(11) not null auto_increment,
+codigo_compra int(11) not null,
+codigo_produto int(5) not null,
+quantidade double(10,1) not null default1,
+preco double(10,2)  not null,
+);
+ constraint pk_compra_produto primary key (id_compra_preduto),
+constraint fk_compprod_codigo_compra foreign key (codigo_compra) references compra(codigo_compra),
+constraint fk_compprod_codigo_produto foreign key (codigo_produto) references produto(codigo_produto)
+);
